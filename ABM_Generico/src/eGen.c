@@ -2,7 +2,7 @@
 
 /**IMPORTANTE - SETEAR VALOR INICIAL CON EL PREFERIDO PARA COMENZAR IDs*/
 //ID AUTOINCREMENTAL
-static int Gen_idIncremental = 1;
+int Gen_idIncremental = 0;
 
 void eGen_Inicializar(eGen array[], int TAM) {
 	int i;
@@ -19,7 +19,7 @@ void eGen_Inicializar(eGen array[], int TAM) {
 
 int eGen_ObtenerID() {
 	//INCREMENTA VARIABLE ESTATICA CADA VEZ QUE SE LLAMA ESTA FUNCION
-	return Gen_idIncremental++;
+	return Gen_idIncremental += 1;
 }
 
 int eGen_ObtenerIndexLibre(eGen array[], int TAM) {
