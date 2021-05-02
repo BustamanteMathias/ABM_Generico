@@ -185,12 +185,17 @@ int eGen_Baja(eGen array[], int TAM) {
 	//SI HAY Gen PARA DAR DE BAJA
 	if (flag) {
 		//PIDO ID A DAR DE BAJA
-		idGen = 1; /**USAR FUNCION GET_INT DE LIBRERIA DE INPUTS*/
+		/**USAR FUNCION GET_INT DE LIBRERIA DE INPUTS*/
+		printf("INGRESE ID A DAR DE BAJA: ");
+		scanf("%d", &idGen);
 
 		//BUSCO INDEX POR ID EN ARRAY
 		while (eGen_BuscarPorID(array, TAM, idGen) == -1) {
 			puts("NO EXISTE ID.");
-			idGen = 1; /**USAR FUNCION GET_INT DE LIBRERIA DE INPUTS*/
+			
+			/**USAR FUNCION GET_INT DE LIBRERIA DE INPUTS*/
+			printf("INGRESE ID A DAR DE BAJA: ");
+			scanf("%d", &idGen);
 		}
 
 		//OBTENGO INDEX DEL ARRAY DE Gen A DAR DE BAJA
@@ -223,12 +228,17 @@ int eGen_Modificacion(eGen array[], int TAM) {
 	//SI HAY Gen PARA MODIFICAR
 	if (flag) {
 		//PIDO ID A MODIFICAR
-		idGen = 1; /**USAR FUNCION GET_INT DE LIBRERIA DE INPUTS*/
+		/**USAR FUNCION GET_INT DE LIBRERIA DE INPUTS*/
+		printf("INGRESE ID A DAR DE BAJA: ");
+		scanf("%d", &idGen);
 
 		//BUSCO INDEX POR ID EN ARRAY
 		while (eGen_BuscarPorID(array, TAM, idGen) == -1) {
 			puts("NO EXISTE ID.");
-			idGen = 1; /**USAR FUNCION GET_INT DE LIBRERIA DE INPUTS*/
+			
+			/**USAR FUNCION GET_INT DE LIBRERIA DE INPUTS*/
+			printf("INGRESE ID A DAR DE BAJA: ");
+			scanf("%d", &idGen);
 		}
 
 		//OBTENGO INDEX DEL ARRAY DE Gen A MODIFICAR
