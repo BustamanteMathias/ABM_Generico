@@ -1,5 +1,5 @@
-#include "eGen.h"
-#define TAM_ESTRUCTURA 5
+#include "eProducto.h"
+#define TAM_ESTRUCTURA 10000
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -8,10 +8,10 @@ int main(void) {
 	int criterioDeOrdenamiento;
 
 	//CREO ARRAY DE ESTRUCTURA
-	eGen Gen[TAM_ESTRUCTURA];
+	eProducto Producto[TAM_ESTRUCTURA];
 
 	//INICIALIAZO ARRAY DE ESTRUCTURA
-	eGen_Inicializar(Gen, TAM_ESTRUCTURA);
+	eProducto_Inicializar(Producto, TAM_ESTRUCTURA);
 
 	//BUCLE DE MENU
 	do {
@@ -29,42 +29,46 @@ int main(void) {
 			break;
 		case 1:
 			//ALTA
-			if (eGen_Alta(Gen, TAM_ESTRUCTURA)) {
-				puts(" * Gen DADO DE ALTA EXITOSAMENTE");
+			if (eProducto_Alta(Producto, TAM_ESTRUCTURA)) {
+				puts(" * Producto DADO DE ALTA EXITOSAMENTE");
 			} else {
-				puts(" * ERROR. SIN ESPACIO PARA ALMACENAR MAS Gen");
+				puts(" * ERROR. SIN ESPACIO PARA ALMACENAR MAS Producto");
 			}
 			system("pause");
 			break;
 		case 2:
 			//BAJA
-			if (eGen_Baja(Gen, TAM_ESTRUCTURA)) {
-				puts("\n * BAJA DE Gen EXITOSA");
-				eGen_MostrarTodos(Gen, TAM_ESTRUCTURA);
+			if (eProducto_Baja(Producto, TAM_ESTRUCTURA)) {
+				puts("\n * BAJA DE Producto EXITOSA");
+				eProducto_MostrarTodos(Producto, TAM_ESTRUCTURA);
 			} else {
-				puts("\n * BAJA DE Gen CANCELADA");
+				puts("\n * BAJA DE Producto CANCELADA");
 			}
 			system("pause");
 			break;
 		case 3:
 			//MODIFICACION
-			if (eGen_Modificacion(Gen, TAM_ESTRUCTURA)) {
-				puts("\n * MODIFICACION DE Gen EXITOSA\n");
-				eGen_MostrarTodos(Gen, TAM_ESTRUCTURA);
+			if (eProducto_Modificacion(Producto, TAM_ESTRUCTURA)) {
+				puts("\n * MODIFICACION DE Producto EXITOSA\n");
+				eProducto_MostrarTodos(Producto, TAM_ESTRUCTURA);
 			} else {
-				puts("\n * MODIFICACION DE Gen CANCELADA");
+				puts("\n * MODIFICACION DE Producto CANCELADA");
 			}
 			system("pause");
 			break;
 		case 4:
-			//LISTADO Gen
-			eGen_MostrarTodos(Gen, TAM_ESTRUCTURA);
-			system("pause");
+			//LISTADO Producto
+			if(eProducto_MostrarTodos(Producto, TAM_ESTRUCTURA)){
+				system("pause");
+			}else{
+				puts("No hay nada para mostrar pa");
+			}
+
 			break;
 		case 5:
-			//ORDENAR Gen
-			criterioDeOrdenamiento = 1; //PEDIR CRITERIO DE ORDENAMIENTO
-			eGen_Sort(Gen, TAM_ESTRUCTURA, criterioDeOrdenamiento);
+			//ORDENAR Producto
+			criterioDeOrdenamiento = -1; //PEDIR CRITERIO DE ORDENAMIENTO
+			eProducto_Sort(Producto, TAM_ESTRUCTURA, criterioDeOrdenamiento);
 			system("pause");
 			break;
 		}
