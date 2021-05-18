@@ -1,5 +1,5 @@
-#include "eProducto.h"
-#define TAM_ESTRUCTURA 10000
+#include "eGen.h"
+#define TAM_Gen 10000
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -8,10 +8,10 @@ int main(void) {
 	int criterioDeOrdenamiento;
 
 	//CREO ARRAY DE ESTRUCTURA
-	eProducto Producto[TAM_ESTRUCTURA];
+	eGen Gen[TAM_Gen];
 
 	//INICIALIAZO ARRAY DE ESTRUCTURA
-	eProducto_Inicializar(Producto, TAM_ESTRUCTURA);
+	eGen_Inicializar(Producto, TAM_Gen);
 
 	//BUCLE DE MENU
 	do {
@@ -29,36 +29,36 @@ int main(void) {
 			break;
 		case 1:
 			//ALTA
-			if (eProducto_Alta(Producto, TAM_ESTRUCTURA)) {
-				puts(" * Producto DADO DE ALTA EXITOSAMENTE");
+			if (eGen_Alta(Gen, TAM_Gen)) {
+				puts(" * Gen DADO DE ALTA EXITOSAMENTE");
 			} else {
-				puts(" * ERROR. SIN ESPACIO PARA ALMACENAR MAS Producto");
+				puts(" * ERROR. SIN ESPACIO PARA ALMACENAR MAS Gen");
 			}
 			system("pause");
 			break;
 		case 2:
 			//BAJA
-			if (eProducto_Baja(Producto, TAM_ESTRUCTURA)) {
-				puts("\n * BAJA DE Producto EXITOSA");
-				eProducto_MostrarTodos(Producto, TAM_ESTRUCTURA);
+			if (eGen_Baja(Gen, TAM_Gen)) {
+				puts("\n * BAJA DE Gen EXITOSA");
+				eGen_MostrarTodos(Gen, TAM_Gen);
 			} else {
-				puts("\n * BAJA DE Producto CANCELADA");
+				puts("\n * BAJA DE Gen CANCELADA");
 			}
 			system("pause");
 			break;
 		case 3:
 			//MODIFICACION
-			if (eProducto_Modificacion(Producto, TAM_ESTRUCTURA)) {
-				puts("\n * MODIFICACION DE Producto EXITOSA\n");
-				eProducto_MostrarTodos(Producto, TAM_ESTRUCTURA);
+			if (eGen_Modificacion(Gen, TAM_Gen)) {
+				puts("\n * MODIFICACION DE Gen EXITOSA\n");
+				eGen_MostrarTodos(Gen, TAM_Gen);
 			} else {
-				puts("\n * MODIFICACION DE Producto CANCELADA");
+				puts("\n * MODIFICACION DE Gen CANCELADA");
 			}
 			system("pause");
 			break;
 		case 4:
 			//LISTADO Producto
-			if(eProducto_MostrarTodos(Producto, TAM_ESTRUCTURA)){
+			if(eGen_MostrarTodos(Gen, TAM_Gen)){
 				system("pause");
 			}else{
 				puts("No hay nada para mostrar pa");
@@ -68,7 +68,7 @@ int main(void) {
 		case 5:
 			//ORDENAR Producto
 			criterioDeOrdenamiento = -1; //PEDIR CRITERIO DE ORDENAMIENTO
-			eProducto_Sort(Producto, TAM_ESTRUCTURA, criterioDeOrdenamiento);
+			eGen_Sort(Gen, TAM_Gen, criterioDeOrdenamiento);
 			system("pause");
 			break;
 		}
