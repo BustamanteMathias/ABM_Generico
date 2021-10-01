@@ -1,17 +1,16 @@
+#ifndef EGEN_H_
+#define EGEN_H_
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#ifndef EGEN_H_
-#define EGEN_H_
-
-//*** DEFINE
 #define MAX_CHARS_CADENAS 30
 #define LIBRE 0
 #define OCUPADO 1
 #define BAJA -1
 
-//*** ESTRUCTURA
+//*** eGen
 typedef struct {
 	int idGen;
 	int isEmpty;
