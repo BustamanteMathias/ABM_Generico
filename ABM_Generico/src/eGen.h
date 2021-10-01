@@ -20,7 +20,6 @@ typedef struct {
 
 /** INICIO CABECERAS DE FUNCION*/
 void eGen_Inicializar(eGen array[], int TAM);
-int eGen_ObtenerID(void);
 int eGen_ObtenerIndexLibre(eGen array[], int TAM);
 int eGen_BuscarPorID(eGen array[], int TAM, int ID);
 void eGen_MostrarUno(eGen Gen);
