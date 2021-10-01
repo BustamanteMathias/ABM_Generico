@@ -1,10 +1,11 @@
 #include "eGen.h"
 
 static int eGen_ObtenerID(void);
-static int eGen_ObtenerID() {
-	//ID AUTOINCREMENTAL
+static int eGen_ObtenerID(void) {
+	//ID AUTOINCREMENTAL - PRIVADO / GLOBAL
+	//INICIALIZADO UNA UNICA VEZ AL COMIENZO DEL PROGRAMA CON ALCANCE UNICAMENTE EN FUNCION eGen_ObtenerID();
 	static int Gen_idIncremental = 0;
-	return Gen_idIncremental ++;
+	return Gen_idIncremental++;
 }
 
 void eGen_Inicializar(eGen array[], int TAM) {
@@ -190,7 +191,7 @@ int eGen_Baja(eGen array[], int TAM) {
 		//BUSCO INDEX POR ID EN ARRAY
 		while (eGen_BuscarPorID(array, TAM, idGen) == -1) {
 			puts("NO EXISTE ID.");
-			
+
 			/**USAR FUNCION GET_INT DE LIBRERIA DE INPUTS*/
 			printf("INGRESE ID A DAR DE BAJA: ");
 			scanf("%d", &idGen);
@@ -233,7 +234,7 @@ int eGen_Modificacion(eGen array[], int TAM) {
 		//BUSCO INDEX POR ID EN ARRAY
 		while (eGen_BuscarPorID(array, TAM, idGen) == -1) {
 			puts("NO EXISTE ID.");
-			
+
 			/**USAR FUNCION GET_INT DE LIBRERIA DE INPUTS*/
 			printf("INGRESE ID A DAR DE BAJA: ");
 			scanf("%d", &idGen);
@@ -263,10 +264,10 @@ int eGen_Sort(eGen array[], int TAM, int criterio) {
 	eGen aux;
 
 	/** EJEMPLO DE SORT CON ID DE Gen
-	    MODIFICAR "CRITERIO DE ORDENAMIENTO" PARA OTROS CASOS DE ORDENAMIENTO 
+	    MODIFICAR "CRITERIO DE ORDENAMIENTO" PARA OTROS CASOS DE ORDENAMIENTO
 	    CASE -1 -> MENOR A MAYOR (ASCENDENTE)
 	    CASE  1 -> MAYOR A MENOR (DESCENDENTE)
-	    
+
 	    UTILIZAR strcmp(...) PARA COMPARAR CADENAS
 	*/
 
@@ -317,4 +318,3 @@ int eGen_Sort(eGen array[], int TAM, int criterio) {
 	}
 	return rtn;
 }
-
