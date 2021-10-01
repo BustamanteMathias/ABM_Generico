@@ -1,8 +1,11 @@
 #include "eGen.h"
 
-/**IMPORTANTE - SETEAR VALOR INICIAL CON EL PREFERIDO PARA COMENZAR IDs*/
-//ID AUTOINCREMENTAL
-static int Gen_idIncremental = 0;
+static int eGen_ObtenerID(void);
+static int eGen_ObtenerID() {
+	//ID AUTOINCREMENTAL
+	static int Gen_idIncremental = 0;
+	return Gen_idIncremental ++;
+}
 
 void eGen_Inicializar(eGen array[], int TAM) {
 	int i;
@@ -15,11 +18,6 @@ void eGen_Inicializar(eGen array[], int TAM) {
 			array[i].isEmpty = LIBRE;
 		}
 	}
-}
-
-int eGen_ObtenerID() {
-	//INCREMENTA VARIABLE ESTATICA CADA VEZ QUE SE LLAMA ESTA FUNCION
-	return Gen_idIncremental += 1;
 }
 
 int eGen_ObtenerIndexLibre(eGen array[], int TAM) {
